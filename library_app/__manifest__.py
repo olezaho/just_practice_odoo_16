@@ -9,8 +9,10 @@
     "category": "Services/Library",
     "depends": ["base"],
     "data": [
+        "security/groups.xml",
+        "security/ir.model.access.csv",
         # "security/library_security.xml",
-        # "security/ir.model.access.csv",
+       
         # "views/book_view.xml",
         "views/library_menu.xml",
         ],

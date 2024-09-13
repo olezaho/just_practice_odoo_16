@@ -25,9 +25,19 @@
                     <group>
                         <field name="name"/>
                         <field name="author_ids" widget="many2many_tags"/>
+                        <field name="notes"/>
+                        <field name="state"/>
+                        <field name="cover"/>
+                        <field name="date_update"/>
+                        <field name="pages"/>
+                        <field name="reader_ratings"/>
+                        <field name="cost_price"/>
                     </group>
                     <group>
+                        <field name="isbn"/>
+                        <field name="active"/>
                         <field name="date_published"/>
+                        <field name="short_name"/>
                     </group>
                 </group>
             </form>
