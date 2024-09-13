@@ -9,11 +9,12 @@
     "category": "Services/Library",
     "depends": ["base"],
     "data": [
-        "security/library_security.xml",
+        "security/groups.xml",
         "security/ir.model.access.csv",
-        "views/book_view.xml",
+        # "security/library_security.xml",
+       
+        # "views/book_view.xml",
         "views/library_menu.xml",
-        "views/book_list_template.xml",
         ],
     "application": True,
 }

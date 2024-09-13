@@ -1,8 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <!-- Library App Menu -->
-    <menuitem id="menu_library" name="Library" />
-
     <!-- Action to open the Book list -->
     <record id="action_library_book" model="ir.actions.act_window">
         <field name="name">Library Books</field>
@@ -12,7 +9,65 @@
     <!-- Old act_window, deprecated
   <act_window id="action_library_book" name="Library Books" res_model="library.book" view_mode="tree,form" />
   -->
+
+    <!-- Library App Menu -->
+    <menuitem id="menu_library" name="Library" />
     <!-- Menu item to open the Book list -->
     <menuitem id="menu_library_book" name="Books" parent="menu_library" action="action_library_book" />
+
+    <!-- Form View for library.book model -->
+    <record id="library_book_view_form" model="ir.ui.view">
+        <field name="name">Library Book Form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="author_ids" widget="many2many_tags"/>
+                        <field name="notes"/>
+                        <field name="state"/>
+                        <field name="cover"/>
+                        <field name="date_update"/>
+                        <field name="pages"/>
+                        <field name="reader_ratings"/>
+                        <field name="cost_price"/>
+                    </group>
+                    <group>
+                        <field name="isbn"/>
+                        <field name="active"/>
+                        <field name="date_published"/>
+                        <field name="short_name"/>
+                    </group>
+                </group>
+            </form>
+
+        </field>
+    </record>
+
+    <!-- Add List View for library.book model -->
+    <record id="library_book_list_view" model="ir.ui.view">
+        <field name="name">Library Book List</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_published"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="account_tag_view_search" model="ir.ui.view">
+        <field name="name">Library Book Search</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="author_ids"/>
+                <separator/>
+                <filter name="without_authors" string="No Authors" domain="[('author_ids', '=', False)]"/>
+            </search>
+        </field>
+    </record>
 
 </odoo>
